@@ -1,0 +1,11 @@
+.layout {
+  background-color: rgba(216, 176, 226, 0.815);
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  background-image: url("https://i.imgur.com/4ZgZ4Ib.jpeg");
+  background-size: cover;
+  box-sizing: border-box;
+}

@@ -1,0 +1,36 @@
+.header {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+
+  background-color: darkgoldenrod;
+  font-size: 1.5rem;
+}
+
+.logo {
+  color: rgb(6, 7, 27);
+  font-weight: bold;
+  font-family: "Gill Sans";
+  padding: 2rem;
+}
+
+.header ul {
+  list-style: none;
+  margin: 0;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.header li {
+  margin-right: 2rem;
+}
+
+.header a {
+  color: #ffe2ed;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
