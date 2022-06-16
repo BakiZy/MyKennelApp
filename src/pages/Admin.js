@@ -1,6 +1,7 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import axios from "axios";
 import Layout from "../components/UI/Layout";
+import AuthContext from "../store/auth-context";
 
 const AdminPage = (props) => {
   const [roles, setRoles] = useState([]);
@@ -8,11 +9,15 @@ const AdminPage = (props) => {
     id: "",
     name: "",
   });
+  const authCtxt = useContext(AuthContext);
+  const token = authCtxt.token;
 
   const roleInputRef = useRef();
   useEffect(() => {
     axios
-      .get("https://localhost:44373/api/Admin/allroles")
+      .get("https://localhost:44373/api/Admin/allroles", {
+        headers: { Authorization: "Bearer " + token },
+      })
       .then((response) => {
         const loadedData = [];
         const roles = response.data;

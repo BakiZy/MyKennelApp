@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: url("https://i.imgur.com/4ZgZ4Ib.jpeg");
-  background-size: cover;
+  background-color: aliceblue;
   box-sizing: border-box;
+  margin: 0;
 }

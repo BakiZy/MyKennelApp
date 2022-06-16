@@ -3,10 +3,16 @@ import { useCallback, useEffect } from "react";
 
 let logoutTimer;
 
+// const IsAdmin = (token) => {
+//   const currentToken = localStorage.getItem("token");
+// };
+// const jwt = retrieveStoredToken();
+
 //authentication and authorization context
 const AuthContext = React.createContext({
   token: "",
   isLoggedIn: false,
+  isAdmin: false,
   login: (token) => {},
   logout: () => {},
 });
@@ -79,6 +85,7 @@ export const AuthContextProvider = (props) => {
   const contextValue = {
     token: token,
     isLoggedIn: userLoggedIn,
+    isAdmin: userLoggedIn && tokenData.isAdmin,
     login: loginHandler,
     logout: logoutHandler,
   };

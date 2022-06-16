@@ -6,12 +6,12 @@
   justify-content: space-between;
   padding: 0;
 
-  background-color: darkgoldenrod;
-  font-size: 1.5rem;
+  background-color: rgb(107, 14, 117);
+  font-size: 2rem;
 }
 
 .logo {
-  color: rgb(6, 7, 27);
+  color: #ffe2ed;
   font-weight: bold;
   font-family: "Gill Sans";
   padding: 2rem;
@@ -32,5 +32,5 @@
 .header a {
   color: #ffe2ed;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }

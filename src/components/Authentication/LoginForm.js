@@ -4,13 +4,15 @@ import AuthContext from "../../store/auth-context";
 import axios from "axios";
 import classes from "./LoginForm.module.css";
 import Button from "../UI/Button";
+import jwt from "jwt-decode";
 
 const AuthForm = () => {
   const usernameInputRef = useRef();
   const passwordInputRef = useRef();
   const emailInputRef = useRef();
   const navigate = useNavigate();
-
+  const decodedObj =
+    "http://schemas.microsoft.com/ws/2008/06/identity/claims/role";
   const authContext = useContext(AuthContext);
 
   const [isLogin, setIsLogin] = useState(true);
@@ -43,8 +45,11 @@ const AuthForm = () => {
           password: enteredPassword,
         })
         .then((response) => {
+          const token = response.data.token;
+          console.log(token);
+          const decodedData = jwt(token);
           authContext.login(response.data.token, response.data.expiration);
-          console.log(response.data);
+          console.log("curent logged user is role" + decodedData.role);
           setIsLogin(true);
           setIsLoading(false);
           alert("login successful");

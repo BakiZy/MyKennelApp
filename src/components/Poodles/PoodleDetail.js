@@ -39,7 +39,7 @@ const PoodleDetail = (props) => {
             className={classes.button}
             onClick={() => props.onOpen(props.id)}
           >
-            Open
+            Interested in this poodle pups?
           </button>
         </div>
       </Layout>

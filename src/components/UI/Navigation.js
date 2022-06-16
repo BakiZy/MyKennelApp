@@ -24,9 +24,7 @@ const Navigation = () => {
           )}
           {isLogged && (
             <li>
-              <Link to="/" onClick={authContext.logout}>
-                Logout
-              </Link>
+              <Link to="/profile">Profile</Link>
             </li>
           )}
           <li>
