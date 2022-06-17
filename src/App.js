@@ -25,8 +25,7 @@ function App() {
         ) : (
           <Route path="/login" element={<LoginPage />} />
         )}
-
-        <Route path="/admin" element={<AdminPage />} />
+        {authContext.isAdmin && <Route path="/admin" element={<AdminPage />} />}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>

@@ -11,7 +11,6 @@ const AdminPage = (props) => {
   });
   const authContext = useContext(AuthContext);
   const token = authContext.token;
-  const isAdmin = authContext.isAdmin;
 
   const roleInputRef = useRef();
   useEffect(() => {
@@ -22,7 +21,7 @@ const AdminPage = (props) => {
       .then((response) => {
         const loadedData = [];
         const roles = response.data;
-        console.log(roles);
+        // console.log(roles);
 
         for (const key in response.data) {
           loadedData.push({

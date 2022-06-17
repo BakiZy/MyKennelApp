@@ -6,7 +6,8 @@ import AuthContext from "../../store/auth-context";
 const PoodleDetail = (props) => {
   const authContext = useContext(AuthContext);
   const isLoggedIn = authContext.isLoggedIn;
-  console.log(isLoggedIn);
+  const isAdmin = authContext.isAdmin;
+
   const dateOfBirth = new Date(props.dateOfBirth).toDateString();
   return (
     <li className={classes.poodle}>
@@ -22,12 +23,12 @@ const PoodleDetail = (props) => {
           ) : (
             <p>Genetic testings : no</p>
           )}
-          {isLoggedIn && <p>Pedigree number: {props.pedigreeNumber}</p>}
+          {isAdmin && <p>Pedigree number: {props.pedigreeNumber}</p>}
           <p>Size : {props.poodleSizeName}</p>
           <p>Color : {props.poodleColorName}</p>
         </div>
         <div className={classes.actions}>
-          {isLoggedIn && (
+          {isAdmin && (
             <button
               className={classes.button}
               onClick={() => props.onEdit(props.id)}

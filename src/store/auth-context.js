@@ -56,6 +56,7 @@ export const AuthContextProvider = (props) => {
   }
 
   const [token, setToken] = useState(initialToken);
+
   useEffect(() => {
     if (initialUsername === "AdminZ") {
       setIsAdmin(true);
@@ -85,6 +86,7 @@ export const AuthContextProvider = (props) => {
     logoutTimer = setTimeout(logoutHandler, remainingLoginTime);
   };
 
+  //auto logout
   useEffect(() => {
     if (tokenData) {
       console.log("token expiration" + tokenData.expiration);

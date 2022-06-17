@@ -14,7 +14,7 @@ const Poodles = () => {
       .then((response) => {
         const loadedData = [];
         const responseData = response.data;
-        console.log(response.data);
+        // console.log(response.data);
         for (const key in responseData) {
           loadedData.push({
             key: key,

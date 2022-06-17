@@ -1,4 +1,3 @@
-import Navigation from "./Navigation";
 import classes from "./Layout.module.css";
 import React from "react";
 

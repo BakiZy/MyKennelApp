@@ -14,7 +14,6 @@ const AuthForm = () => {
 
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
 
   const switchLoginHandler = () => {
     setIsLogin((prevState) => !prevState);
@@ -52,7 +51,6 @@ const AuthForm = () => {
           console.log(response.data);
           if (response.data.username === "AdminZ") {
             authContext.isAdmin = true;
-            console.log("adminEZARA");
           }
           setIsLogin(true);
           setIsLoading(false);

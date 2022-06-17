@@ -8,11 +8,13 @@ const Navigation = () => {
 
   const isLogged = authContext.isLoggedIn;
   const isAdmin = authContext.isAdmin;
-  console.log(isAdmin + "navigation info o adminu");
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
-        &#128041; Poodle kennel Von Apalusso &#128041;
+        <span role="img" aria-label="poodle">
+          {" "}
+          &#128041; Podle kennel Von Apalusso &#128041;
+        </span>
       </div>
       <nav>
         <ul>
@@ -31,9 +33,6 @@ const Navigation = () => {
           )}
           <li>
             <Link to="/poodles">Poodles</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
           </li>
           {isAdmin && (
             <li>
