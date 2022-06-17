@@ -1,22 +1,20 @@
-import { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../store/auth-context";
 import axios from "axios";
 import classes from "./LoginForm.module.css";
 import Button from "../UI/Button";
-import jwt from "jwt-decode";
 
 const AuthForm = () => {
   const usernameInputRef = useRef();
   const passwordInputRef = useRef();
   const emailInputRef = useRef();
   const navigate = useNavigate();
-  const decodedObj =
-    "http://schemas.microsoft.com/ws/2008/06/identity/claims/role";
   const authContext = useContext(AuthContext);
 
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const switchLoginHandler = () => {
     setIsLogin((prevState) => !prevState);
@@ -29,6 +27,7 @@ const AuthForm = () => {
       setIsLoading(true);
       const enteredUsername = usernameInputRef.current.value;
       const enteredPassword = passwordInputRef.current.value;
+      console.log(enteredUsername);
 
       if (
         enteredUsername.trim().length < 4 ||
@@ -45,11 +44,16 @@ const AuthForm = () => {
           password: enteredPassword,
         })
         .then((response) => {
-          const token = response.data.token;
-          console.log(token);
-          const decodedData = jwt(token);
-          authContext.login(response.data.token, response.data.expiration);
-          console.log("curent logged user is role" + decodedData.role);
+          authContext.login(
+            response.data.token,
+            response.data.expiration,
+            response.data.username
+          );
+          console.log(response.data);
+          if (response.data.username === "AdminZ") {
+            authContext.isAdmin = true;
+            console.log("adminEZARA");
+          }
           setIsLogin(true);
           setIsLoading(false);
           alert("login successful");

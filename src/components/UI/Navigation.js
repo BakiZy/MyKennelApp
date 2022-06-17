@@ -7,6 +7,8 @@ const Navigation = () => {
   const authContext = useContext(AuthContext);
 
   const isLogged = authContext.isLoggedIn;
+  const isAdmin = authContext.isAdmin;
+  console.log(isAdmin + "navigation info o adminu");
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
@@ -33,9 +35,11 @@ const Navigation = () => {
           <li>
             <Link to="/about">About</Link>
           </li>
-          <li>
-            <Link to="/admin">Admin</Link>
-          </li>
+          {isAdmin && (
+            <li>
+              <Link to="/admin">Admin</Link>
+            </li>
+          )}
         </ul>
       </nav>
     </header>

@@ -1,4 +1,5 @@
 import PoodleDetail from "./PoodleDetail";
+import React from "react";
 
 const PoodleList = (props) => {
   const poodlesList = props.poodles.map((poodle) => {

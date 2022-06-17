@@ -1,4 +1,4 @@
-import { useRef, useContext } from "react";
+import React, { useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import classes from "./ProfileForm.module.css";
@@ -48,8 +48,9 @@ const ProfileForm = () => {
           bodyParameters,
           config
         )
-        .then(function (response) {
+        .then(function(response) {
           console.log(response);
+          alert("password succesffully changed");
           navigate("/");
         })
         .catch((error) => {

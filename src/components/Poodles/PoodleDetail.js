@@ -1,6 +1,6 @@
 import classes from "./PoodleDetail.module.css";
 import Layout from "../UI/Layout";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import AuthContext from "../../store/auth-context";
 
 const PoodleDetail = (props) => {

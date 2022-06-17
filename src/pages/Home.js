@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import PoodleList from "../components/Poodles/PoodlesList";
+import React from "react";
 import Layout from "../components/UI/Layout";
 
 const Home = () => {

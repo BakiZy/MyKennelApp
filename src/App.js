@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/UI/Navigation";
-import { useContext } from "react";
+import React, { useContext } from "react";
 
 import AuthContext from "./store/auth-context";
 import Home from "../src/pages/Home";

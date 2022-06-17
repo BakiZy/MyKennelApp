@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useContext } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import axios from "axios";
 import Layout from "../components/UI/Layout";
 import AuthContext from "../store/auth-context";
@@ -9,8 +9,9 @@ const AdminPage = (props) => {
     id: "",
     name: "",
   });
-  const authCtxt = useContext(AuthContext);
-  const token = authCtxt.token;
+  const authContext = useContext(AuthContext);
+  const token = authContext.token;
+  const isAdmin = authContext.isAdmin;
 
   const roleInputRef = useRef();
   useEffect(() => {
@@ -35,7 +36,7 @@ const AdminPage = (props) => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [authContext.isAdmin]);
 
   const RolesList = () => {
     return (
