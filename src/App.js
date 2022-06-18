@@ -11,6 +11,7 @@ import NotFound from "../src/pages/NotFound";
 import Poodles from "../src/pages/Poodles";
 
 import Layout from "./components/UI/Layout";
+import EditPoodle from "./pages/EditPoodle";
 
 function App() {
   const authContext = useContext(AuthContext);
@@ -26,6 +27,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
         )}
         {authContext.isAdmin && <Route path="/admin" element={<AdminPage />} />}
+        <Route path=":poodleId" element={<EditPoodle />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>

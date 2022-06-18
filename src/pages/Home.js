@@ -3,7 +3,7 @@ import Layout from "../components/UI/Layout";
 
 const Home = () => {
   return (
-    <section>
+    <section id="poodlesetup">
       <h1
         style={{
           textAlign: "center",

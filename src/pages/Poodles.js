@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import React from "react";
 import axios from "axios";
 import PoodleList from "../components/Poodles/PoodlesList";
@@ -6,6 +7,7 @@ import PoodleList from "../components/Poodles/PoodlesList";
 const Poodles = () => {
   const [poodlesList, setPoodlesList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -37,12 +39,16 @@ const Poodles = () => {
       });
   }, []);
 
+  const editHandler = (id) => {
+    navigate(`/poodle/${id}`);
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
-    <section>
+    <>
       <h1
         style={{
           textAlign: "center",
@@ -52,8 +58,8 @@ const Poodles = () => {
       >
         Von Apalusso active squad{" "}
       </h1>
-      <PoodleList poodles={poodlesList} />
-    </section>
+      <PoodleList poodles={poodlesList} onEdit={editHandler} />
+    </>
   );
 };
 

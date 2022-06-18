@@ -96,13 +96,11 @@ const ProfileForm = () => {
             ref={confirmPasswordInput}
           />
         </div>
-        <div>
-          <button>Update password</button>
+        <div className={classes.action}>
+          <button>Change password</button>
+          <button onClick={logoutHandler}>Logout </button>
         </div>
       </form>
-      <div>
-        <button onClick={logoutHandler}>Logout </button>
-      </div>
     </>
   );
 };

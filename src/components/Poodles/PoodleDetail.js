@@ -2,6 +2,7 @@ import classes from "./PoodleDetail.module.css";
 import Layout from "../UI/Layout";
 import React, { useContext } from "react";
 import AuthContext from "../../store/auth-context";
+import Transition from "react-transition-group/Transition";
 
 const PoodleDetail = (props) => {
   const authContext = useContext(AuthContext);
@@ -10,8 +11,8 @@ const PoodleDetail = (props) => {
 
   const dateOfBirth = new Date(props.dateOfBirth).toDateString();
   return (
-    <li className={classes.poodle}>
-      <Layout>
+    <Layout>
+      <li className={classes.poodle}>
         <div className={classes.image}>
           <img src={props.image} alt={props.name} />
         </div>
@@ -43,8 +44,8 @@ const PoodleDetail = (props) => {
             Interested in this poodle pups?
           </button>
         </div>
-      </Layout>
-    </li>
+      </li>
+    </Layout>
   );
 };
 

@@ -1,6 +1,8 @@
 .poodle {
   margin: 0;
   padding: 1rem;
+  border-radius: 4px;
+  border-color: black;
 }
 
 ul {
@@ -8,7 +10,7 @@ ul {
   grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr;
   grid-gap: 1rem;
   list-style: none;
-  width: 100%;
+  width: fit-content;
 }
 
 li {
@@ -24,6 +26,7 @@ p {
   padding: 2px;
   margin: 0;
 }
+
 .image img {
   float: left;
   width: 30rem;
@@ -49,6 +52,7 @@ p {
 }
 
 .actions button {
+  display: block;
   font: inherit;
   cursor: pointer;
   color: #77002e;
@@ -61,4 +65,22 @@ p {
 .actions button:hover,
 .actions button:active {
   background-color: #ffe2ed;
+}
+
+.ModalOpen {
+  animation: openModal 0.5s ease-out forwards;
+}
+@keyframes openModal {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(30%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
