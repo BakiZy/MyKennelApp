@@ -1,5 +1,7 @@
 import PoodleDetail from "./PoodleDetail";
+import classes from "./PoodlesList.module.css";
 import React from "react";
+import Layout from "../UI/Layout";
 
 const PoodleList = (props) => {
   const poodlesList = props.poodles.map((poodle) => {
@@ -19,7 +21,11 @@ const PoodleList = (props) => {
       />
     );
   });
-  return <ul>{poodlesList}</ul>;
+  return (
+    <div className={classes.listItems}>
+      <ul className={classes.ul}>{poodlesList}</ul>
+    </div>
+  );
 };
 
 export default PoodleList;

@@ -35,7 +35,7 @@ const AdminPage = (props) => {
       .catch((error) => {
         console.log(error);
       });
-  }, [authContext.isAdmin]);
+  }, [authContext.isAdmin, token]);
 
   const RolesList = () => {
     return (

@@ -3,6 +3,7 @@ import Layout from "../UI/Layout";
 import React, { useContext } from "react";
 import AuthContext from "../../store/auth-context";
 import Transition from "react-transition-group/Transition";
+import { Link } from "react-router-dom";
 
 const PoodleDetail = (props) => {
   const authContext = useContext(AuthContext);
@@ -17,7 +18,9 @@ const PoodleDetail = (props) => {
           <img src={props.image} alt={props.name} />
         </div>
         <div className={classes.content}>
-          <h3>{props.name}</h3>
+          <Link to="">
+            <h3>{props.name}</h3>
+          </Link>
           <p>Date of birth : {dateOfBirth}</p>
           {props.geneticTests ? (
             <p>Genetic testings : yes</p>

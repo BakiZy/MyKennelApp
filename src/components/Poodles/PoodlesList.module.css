@@ -1,0 +1,25 @@
+.listItems {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5 ease-out;
+}
+
+.listItems ul {
+  display: list-item;
+  align-items: center;
+  overflow: hidden;
+  padding: 2rem;
+  animation: drop-after-load 1s ease-in forwards;
+}
+
+@keyframes drop-after-load {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import React from "react";
 import axios from "axios";
 import PoodleList from "../components/Poodles/PoodlesList";
+import Layout from "../components/UI/Layout";
 
 const Poodles = () => {
   const [poodlesList, setPoodlesList] = useState([]);
@@ -48,7 +49,7 @@ const Poodles = () => {
   }
 
   return (
-    <>
+    <Layout>
       <h1
         style={{
           textAlign: "center",
@@ -59,7 +60,7 @@ const Poodles = () => {
         Von Apalusso active squad{" "}
       </h1>
       <PoodleList poodles={poodlesList} onEdit={editHandler} />
-    </>
+    </Layout>
   );
 };
 

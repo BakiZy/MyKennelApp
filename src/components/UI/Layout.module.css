@@ -1,11 +1,9 @@
 .layout {
   background-color: rgba(216, 176, 226, 0.815);
-  border-radius: 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-body {
-  background-color: aliceblue;
-  box-sizing: border-box;
+  border-radius: 1.5rem;
   margin: 0;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  box-sizing: border-box;
 }

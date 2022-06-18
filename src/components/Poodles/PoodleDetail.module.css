@@ -1,23 +1,9 @@
 .poodle {
-  margin: 0;
-  padding: 1rem;
-  border-radius: 4px;
-  border-color: black;
-}
-
-ul {
-  display: grid;
-  grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr;
-  grid-gap: 1rem;
-  list-style: none;
-  width: fit-content;
-}
-
-li {
-  display: grid;
-  grid-template-columns: fit-content(1fr);
+  display: block;
+  padding: 3rem;
   float: left;
   list-style: none;
+  transition: transform 0.5s ease-in-out;
 }
 
 p {
@@ -32,13 +18,14 @@ p {
   width: 30rem;
   height: 30rem;
   object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
 }
 
 .content {
   text-align: center;
   height: fit-content;
-  padding: 2px;
   background-color: #ffe2ed;
+  border-radius: 0 0 1rem 1rem;
 }
 
 .content h3 {
@@ -59,7 +46,12 @@ p {
   border: 1px solid #77002e;
   background-color: transparent;
   padding: 0.5rem 1.5rem;
-  border-radius: 4px;
+  border-radius: 1rem;
+}
+
+.poodle:hover,
+.poodle:active {
+  transform: scale(1.2);
 }
 
 .actions button:hover,
@@ -67,9 +59,6 @@ p {
   background-color: #ffe2ed;
 }
 
-.ModalOpen {
-  animation: openModal 0.5s ease-out forwards;
-}
 @keyframes openModal {
   0% {
     opacity: 0;
