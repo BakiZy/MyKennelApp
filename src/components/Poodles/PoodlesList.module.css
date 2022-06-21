@@ -9,7 +9,7 @@
   align-items: center;
   overflow: hidden;
   padding: 2rem;
-  animation: drop-after-load 1s ease-in forwards;
+  animation: drop-after-load 2s ease-in forwards;
 }
 
 @keyframes drop-after-load {

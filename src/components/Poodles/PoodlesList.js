@@ -1,7 +1,6 @@
 import PoodleDetail from "./PoodleDetail";
 import classes from "./PoodlesList.module.css";
 import React from "react";
-import Layout from "../UI/Layout";
 
 const PoodleList = (props) => {
   const poodlesList = props.poodles.map((poodle) => {

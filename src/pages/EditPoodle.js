@@ -7,7 +7,7 @@ const EditPoodle = () => {
   console.log(poodleId);
   return (
     <Layout>
-      <h1>Edit Poodle</h1>
+      <h1>Edit Poodle data</h1>
     </Layout>
   );
 };

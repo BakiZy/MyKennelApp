@@ -32,7 +32,7 @@ const Navigation = () => {
             </li>
           )}
           <li>
-            <Link to="/poodles">Poodles</Link>
+            <Link to="/about">About</Link>
           </li>
           {isAdmin && (
             <li>

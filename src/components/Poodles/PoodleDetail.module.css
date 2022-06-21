@@ -3,13 +3,13 @@
   padding: 3rem;
   float: left;
   list-style: none;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 p {
   font-size: 1.5rem;
   color: #353336;
-  padding: 2px;
+  padding: 0.5rem;
   margin: 0;
 }
 
@@ -57,19 +57,4 @@ p {
 .actions button:hover,
 .actions button:active {
   background-color: #ffe2ed;
-}
-
-@keyframes openModal {
-  0% {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  50% {
-    opacity: 1;
-    transform: translateX(30%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
