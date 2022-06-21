@@ -9,7 +9,6 @@ import AdminPage from "../src/pages/Admin";
 import ProfilePage from "./pages/Profile";
 import NotFound from "../src/pages/NotFound";
 import About from "./pages/About";
-import Modal from "./components/UI/Modal";
 import Layout from "./components/UI/Layout";
 import EditPoodle from "./pages/EditPoodle";
 

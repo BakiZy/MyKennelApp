@@ -2,12 +2,10 @@ import classes from "./PoodleDetail.module.css";
 import Layout from "../UI/Layout";
 import React, { useContext } from "react";
 import AuthContext from "../../store/auth-context";
-import Transition from "react-transition-group/Transition";
 import { Link } from "react-router-dom";
 
 const PoodleDetail = (props) => {
   const authContext = useContext(AuthContext);
-  const isLoggedIn = authContext.isLoggedIn;
   const isAdmin = authContext.isAdmin;
 
   const dateOfBirth = new Date(props.dateOfBirth).toDateString();

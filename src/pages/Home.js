@@ -1,28 +1,25 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import React from "react";
+
 import axios from "axios";
 import PoodleList from "../components/Poodles/PoodlesList";
+import PoodleFilter from "../components/Poodles/PoodleFilter";
+
 import Layout from "../components/UI/Layout";
 import NotFound from "./NotFound";
 import classes from "./Home.module.css";
-import PoodleFilter from "../components/Poodles/PoodleFilter";
 import Button from "../components/UI/Button";
 
 const Home = () => {
   const [poodlesList, setPoodlesList] = useState([]);
   const [loading, setIsLoading] = useState(true);
   const [loaded, setIsLoaded] = useState(false);
-  const [filteredList, setFilteredList] = useState([]);
   const [filterLoading, setFilterLoading] = useState(false);
-  const [filterLoaded, setFilterLoaded] = useState(false);
 
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
-  const nameInputRef = useRef();
-  const sizeInputRef = useRef();
-  const colorInputRef = useRef();
 
   useEffect(() => {
     axios
@@ -124,6 +121,7 @@ const Home = () => {
   return (
     <Layout>
       <NameFilter />
+      <PoodleFilter />
       <h1
         style={{
           textAlign: "center",
