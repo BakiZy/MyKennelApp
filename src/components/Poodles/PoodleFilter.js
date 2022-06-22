@@ -2,7 +2,6 @@ import React, { useCallback, useEffect } from "react";
 import classes from "./PoodleFilter.module.css";
 import axios from "axios";
 import { useState, useRef } from "react";
-import Button from "../UI/Button";
 
 const PoodleFilter = (props) => {
   const sizeInputRef = useRef();
@@ -20,6 +19,7 @@ const PoodleFilter = (props) => {
   const [colors, setColors] = useState([]);
   const [loadingSizes, setLoadingSizes] = useState(true);
   const [loadingColors, setLoadingColors] = useState(false);
+  const [filteredList, setFilteredList] = useState([]);
 
   useEffect(() => {
     const fetchSizes = async () => {
@@ -103,47 +103,55 @@ const PoodleFilter = (props) => {
             });
           }
           setLoadingSizes(false);
+          setFilteredList(loadedData);
+          props.onFilter(loadedData);
         })
         .catch((error) => {
           console.log(error);
         });
     },
-    [sizes]
+    [colorInputRef, sizeInputRef]
   );
 
   const SizeList = (props) => {
     return (
-      <select
-        id="sizeName"
-        name="sizeName"
-        ref={sizeInputRef}
-        value={sizeForm}
-        onChange={(e) => setSizeForm(e.target.value)}
-      >
-        {sizes.map((size) => (
-          <option id={size.id} key={size.id} value={size.name}>
-            {size.name}
-          </option>
-        ))}
-      </select>
+      <div>
+        <label htmlFor="sizeName">Size</label>
+        <select
+          id="sizeName"
+          name="sizeName"
+          ref={sizeInputRef}
+          value={sizeForm}
+          onChange={(e) => setSizeForm(e.target.value)}
+        >
+          {sizes.map((size) => (
+            <option id={size.id} key={size.id} value={size.name}>
+              {size.name}
+            </option>
+          ))}
+        </select>
+      </div>
     );
   };
 
   const ColorList = (props) => {
     return (
-      <select
-        id="colorName"
-        name="colorName"
-        ref={colorInputRef}
-        value={colorForm}
-        onChange={(e) => setColorForm(e.target.value)}
-      >
-        {colors.map((color) => (
-          <option id={color.id} key={color.id} value={color.name}>
-            {color.name}
-          </option>
-        ))}
-      </select>
+      <div>
+        <label htmlFor="colorName">Color</label>
+        <select
+          id="colorName"
+          name="colorName"
+          ref={colorInputRef}
+          value={colorForm}
+          onChange={(e) => setColorForm(e.target.value)}
+        >
+          {colors.map((color) => (
+            <option id={color.id} key={color.id} value={color.name}>
+              {color.name}
+            </option>
+          ))}
+        </select>
+      </div>
     );
   };
 
@@ -152,9 +160,9 @@ const PoodleFilter = (props) => {
       <form onSubmit={getFilters}>
         <SizeList />
         <ColorList />
+
         <div className={classes.actionz}>
           <button type="submit">Search</button>
-          <Button>Clear filter</Button>
         </div>
       </form>
     </div>

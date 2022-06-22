@@ -16,10 +16,16 @@ const Home = () => {
   const [loading, setIsLoading] = useState(true);
   const [loaded, setIsLoaded] = useState(false);
   const [filterLoading, setFilterLoading] = useState(false);
-
+  const [filteredList, setFilteredList] = useState([]);
   const [error, setError] = useState(false);
-
   const navigate = useNavigate();
+
+  const filterHandler = (filterData) => {
+    const data = {
+      ...filterData,
+    };
+    setPoodlesList(filterData);
+  };
 
   useEffect(() => {
     axios
@@ -60,43 +66,44 @@ const Home = () => {
     return <NotFound />;
   }
 
+  // setState((prvestate) => {
+  //   return {...prevstate, nekideostatea: "nesto"};
+  // })
+
   const NameFilter = (props) => {
     const nameInputRef = useRef();
-    const searchFilter = useCallback(
-      (event) => {
-        event.preventDefault();
-        const enteredName = nameInputRef.current.value;
-        console.log(enteredName);
-        axios
-          .get("https://localhost:44373/api/filters/search-by-name", {
-            params: { name: enteredName },
-          })
-          .then((response) => {
-            const responseData = response.data;
-            const loadedData = [];
-            for (const key in responseData) {
-              loadedData.push({
-                key: key,
-                id: responseData[key].id,
-                name: responseData[key].name,
-                dateOfBirth: responseData[key].dateOfBirth,
-                geneticTests: responseData[key].geneticTests,
-                pedigreeNumber: responseData[key].pedigreeNumber,
-                poodleSizeName: responseData[key].poodleSizeName,
-                poodleColorName: responseData[key].poodleColorName,
-                image: responseData[key].image,
-              });
-            }
-            setPoodlesList(loadedData);
-            setFilterLoading(false);
-            setIsLoading(true);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      },
-      [loading, filterLoading]
-    );
+    const searchFilter = useCallback((event) => {
+      event.preventDefault();
+      const enteredName = nameInputRef.current.value;
+      console.log(enteredName);
+      axios
+        .get("https://localhost:44373/api/filters/search-by-name", {
+          params: { name: enteredName },
+        })
+        .then((response) => {
+          const responseData = response.data;
+          const loadedData = [];
+          for (const key in responseData) {
+            loadedData.push({
+              key: key,
+              id: responseData[key].id,
+              name: responseData[key].name,
+              dateOfBirth: responseData[key].dateOfBirth,
+              geneticTests: responseData[key].geneticTests,
+              pedigreeNumber: responseData[key].pedigreeNumber,
+              poodleSizeName: responseData[key].poodleSizeName,
+              poodleColorName: responseData[key].poodleColorName,
+              image: responseData[key].image,
+            });
+          }
+          setPoodlesList(loadedData);
+          setFilterLoading(false);
+          setIsLoading(true);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }, []);
 
     const clearHandler = () => {};
     return (
@@ -120,8 +127,9 @@ const Home = () => {
 
   return (
     <Layout>
+      <PoodleFilter onFilter={filterHandler} />
       <NameFilter />
-      <PoodleFilter />
+
       <h1
         style={{
           textAlign: "center",
