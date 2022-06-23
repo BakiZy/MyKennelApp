@@ -10,6 +10,7 @@ import Layout from "../components/UI/Layout";
 import NotFound from "./NotFound";
 import classes from "./Home.module.css";
 import Button from "../components/UI/Button";
+import { clear } from "@testing-library/user-event/dist/clear";
 
 const Home = () => {
   const [poodlesList, setPoodlesList] = useState([]);
@@ -107,38 +108,41 @@ const Home = () => {
 
     const clearHandler = () => {};
     return (
-      <form className={classes.controlNameFilter} onSubmit={searchFilter}>
-        <label htmlFor="searchByNameFilter" className={classes.filterNameLabel}>
-          Filter by name:
-        </label>
-        <input
-          type="text"
-          id="searchByNameFilter"
-          name="searchByNameFilter"
-          ref={nameInputRef}
-        />
-        <div className={classes.actionz}>
-          <button className={classes.searchButton}>Search</button>
-          <Button onClick={clearHandler}>Clear filter</Button>
+      <form onSubmit={searchFilter}>
+        <div className={classes.controlNameFilter}>
+          <label
+            htmlFor="searchByNameFilter"
+            className={classes.filterNameLabel}
+          >
+            Enter name of a dog to search:
+          </label>
+
+          <input
+            type="text"
+            id="searchByNameFilter"
+            name="searchByNameFilter"
+            ref={nameInputRef}
+          />
+        </div>
+        <div className={classes.nameFilter}>
+          <button className={classes.searchNameButton}>Search by name</button>
+          <Button onClick={clearHandler} className={classes.clearButton}>
+            Clear filter
+          </Button>
         </div>
       </form>
     );
   };
 
+  const clearHandler = () => {};
+
   return (
     <Layout>
-      <PoodleFilter onFilter={filterHandler} />
-      <NameFilter />
-
-      <h1
-        style={{
-          textAlign: "center",
-          fontSize: "2em",
-          textAlignLast: "center",
-        }}
-      >
-        Von Apalusso active squad
-      </h1>
+      <div className={classes.filters}>
+        <PoodleFilter onFilter={filterHandler} />
+        <NameFilter onClick={clearHandler} />
+      </div>
+      <h1>Von Apalusso squad</h1>
       <PoodleList poodles={poodlesList} onEdit={onRemoveHandler} />
     </Layout>
   );

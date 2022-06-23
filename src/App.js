@@ -27,7 +27,6 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
         )}
         {authContext.isAdmin && <Route path="/admin" element={<AdminPage />} />}
-
         <Route path=":poodleId" exact element={<EditPoodle />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

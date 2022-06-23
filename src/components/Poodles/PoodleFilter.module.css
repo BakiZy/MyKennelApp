@@ -1,0 +1,36 @@
+label {
+  font-weight: bold;
+  margin: auto;
+  color: #353336;
+  display: inline-block;
+  text-align: center;
+  width: 15rem;
+}
+
+.filterForm {
+  margin-bottom: 0.5rem;
+  width: 25rem;
+  display: flex;
+  padding: 1rem;
+}
+
+select {
+  height: 2rem;
+  font: inherit;
+  width: 9rem;
+  border-radius: 4px;
+  border: 1px solid #38015c;
+  text-align: center;
+  padding: 0.25rem;
+  background-color: #f7f0fa;
+  margin: auto;
+}
+
+.filterButton button {
+  background-color: #38015c;
+  border-color: #38015c;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
+  height: 2.3rem;
+  min-width: 13rem;
+  padding: 0.5rem;
+}

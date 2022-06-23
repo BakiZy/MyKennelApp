@@ -2,6 +2,7 @@ import React, { useCallback, useEffect } from "react";
 import classes from "./PoodleFilter.module.css";
 import axios from "axios";
 import { useState, useRef } from "react";
+import Button from "../UI/Button";
 
 const PoodleFilter = (props) => {
   const sizeInputRef = useRef();
@@ -116,7 +117,7 @@ const PoodleFilter = (props) => {
   const SizeList = (props) => {
     return (
       <div>
-        <label htmlFor="sizeName">Size</label>
+        <label htmlFor="sizeName">Select size of poodle</label>
         <select
           id="sizeName"
           name="sizeName"
@@ -137,7 +138,7 @@ const PoodleFilter = (props) => {
   const ColorList = (props) => {
     return (
       <div>
-        <label htmlFor="colorName">Color</label>
+        <label htmlFor="colorName">Select color of poodle</label>
         <select
           id="colorName"
           name="colorName"
@@ -156,16 +157,13 @@ const PoodleFilter = (props) => {
   };
 
   return (
-    <div className={classes.filter}>
-      <form onSubmit={getFilters}>
-        <SizeList />
-        <ColorList />
-
-        <div className={classes.actionz}>
-          <button type="submit">Search</button>
-        </div>
-      </form>
-    </div>
+    <form onSubmit={getFilters} className={classes.filterForm}>
+      <SizeList />
+      <ColorList />
+      <div className={classes.filterButton}>
+        <button type="submit">Search by color & size</button>
+      </div>
+    </form>
   );
 };
 

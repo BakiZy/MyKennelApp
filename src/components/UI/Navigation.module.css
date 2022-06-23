@@ -14,6 +14,8 @@
   color: #ffe2ed;
   font-weight: bold;
   font-family: "Gill Sans";
+  display: flex;
+  justify-content: space-evenly;
   padding: 2rem;
 }
 
@@ -33,4 +35,23 @@
   color: #ffe2ed;
   text-decoration: none;
   font-size: 2rem;
+}
+
+.fa {
+  width: 10rem;
+  justify-content: space-evenly;
+  display: inline-flex;
+  color: #ffe2ed;
+}
+
+.faFacebook:hover {
+  opacity: 0.7;
+}
+
+.faInstagram:hover {
+  opacity: 0.7;
+}
+
+.faWhatsapp:hover {
+  opacity: 0.7;
 }
